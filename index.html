@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-black">
+    <main class="grid md:grid justify-center md:justify-center bg-[#6d6149] md:p-48">
+        <h1 class="p-20 text-[30px] text-gray-400 ">Get to see the fruit of your hard work with the CGPA calculator.</h1>
+        <div class="p-5 border-[1px] border-solid border-[#997e66] shadow-md shadow-black rounded-md">
+        <div class="p-5 border-[1px] border-solid border-[#997e66] shadow-md shadow-black rounded-md">
+        <div class="p-5 border-[1px] border-solid border-[#997e66] shadow-md shadow-black rounded-md">
+        <div class="p-5 border-[1px] border-solid border-[#997e66] shadow-md shadow-black rounded-md">
+        <div class="grid p-8 border-solid border-[1px] border-[#997e66] rounded-md hover:bg-[#ba9652] shadow-md shadow-zinc-950">
+            <label class="flex justify-center p-4" for="table"><span class="shadow-md shadow-gray-400 font-bold p-2">CGPA checker</span> </label>
+            <table>
+            
+            <thead>
+                <tr>
+                    <th class="">Subject</th>
+                    <th class="" >Score</th>
+                    <th class="">Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="">History</th>
+                    <td><input type="number" name="score" placeholder="Input grade" id="hs" class="rounded-md p-1 bg-transparent focus:bg-white "></td>
+                    <td id="one"></td>
+                </tr>
+                <tr>
+                    <th class="">Mathematics</th>
+                    <td><input type="number" name="score" placeholder="Input grade" id="mt" class="rounded-md p-1 bg-transparent focus:bg-white"></td>
+                    <td id="two"></td>
+                </tr>
+                <tr>
+                    <th>French</th>
+                        <td><input type="number" name="score" placeholder="Input grade" id="fr" class="rounded-md p-1 bg-transparent focus:bg-white"></td>
+                        <td id="three"></td>
+                    
+                </tr>
+                <tr>
+                    <th>literature</th>
+                        <td id=""><input type="number" name="score" placeholder="Input grade" id="lt" class="rounded-md p-1 bg-transparent text-black focus:bg-white"></td>
+                        <td id="four"></td>
+                   
+                </tr>
+            </tbody>
+            <tfoot>
+               <tr>
+                <td colspan="2">
+                    <button class="bg-transparent shadow-md shadow-black p-1 rounded-md border-[2px] border-solid border-transparent hover:bg-[#6d6149] hover:border-transparent hover:text-blue-400">Check average</button>
+                </td>
+                <td id="avg" class="p-1">0</td>
+                <td id="position" class="shadow-md shadow-black rounded-md p-2"></td>
+               </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+    </main>
+
+    <script>
+        const hs = document.getElementById('hs')
+        const mt = document.getElementById('mt')
+        const fr = document.getElementById('fr')
+        const lt = document.getElementById('lt')
+        const avg = document.getElementById('avg')
+        const btn = document.querySelector('button')
+
+        const one = document.getElementById('one')
+        const two = document.getElementById('two')
+        const three = document.getElementById('three')
+        const four = document.getElementById('four')
+        const position = document.getElementById('position')
+
+        position.style.fontSize = '12px'
+      
+        
+        
+       
+
+
+        function calScore(){
+            const score1 = Number(hs.value)
+            const score2 = Number(mt.value)
+            const score3 = Number(fr.value)
+            const score4 = Number(lt.value)
+            const total = score1 + score2 + score3 + score4
+
+            score1 >= 70 ? (one.textContent = "A") : score1 >= 60 ? (one.textContent = "B") : score1 >= 50 ? (one.textContent = "C"): score1 >= 40 ? (one.textContent = "D") : (one.textContent = 'F')
+            score2 >= 70 ? (two.textContent = "A") : score2 >= 60 ? (two.textContent = "B") : score2 >= 50 ? (two.textContent = "C"): score2 >= 40 ? (two.textContent = "D") : (two.textContent = 'F')
+            score3 >= 70 ? (three.textContent = "A") : score3 >= 60 ? (three.textContent = "B") : score3 >= 50 ? (three.textContent = "C"): score3 >= 40 ? (three.textContent = "D") : (three.textContent = 'F')
+            score4 >= 70 ? (four.textContent = "A") : score4 >= 60 ? (four.textContent = "B") : score4 >= 50 ? (four.textContent = "C"): score4 >= 40 ? (four.textContent = "D") : (four.textContent = 'F')
+            
+            avg.textContent = (total/4).toFixed(2)
+           
+            //Number(avg.textContent) >= 90 ? (position.textContent = "First-Class") : Number(avg.textContent) >= 70 ? (position.textContent = "Second-Class upper") : Number(avg.textContent) >=  60 ? (position.textContent = "Second- class Lower"): Number(avg.textContent) >= 50 ? (position.textContent = "lower"): Number(avg.textContent) >= 40 ? (position.textContent = "pass"): Number(avg.textContent) <= 30? (position.textContent = "Fail! advise to withdraw")
+
+            if (avg.textContent >= 90 ){
+                return (position.textContent = "FIRST-CLASS")
+            }else if(avg.textContent >= 70){
+                return (position.textContent = "SECOND CLASS UPPER")
+            }else if (avg.textContent >= 60){
+                return (position.textContent = "SECOND CLASS LOWER")
+            }else if (avg.textContent >= 50){
+                return (position.textContent = "LOWER-CLASS")
+            }else if(avg.textContent >= 40) {
+                return (position.textContent = "PASS")
+            }else if(avg.textContent <= 30) {
+                return (position.textContent = "FAILED! ADVISE TO WITHDRAW!")
+            }
+            //alert(avg)
+        }
+       
+        btn.addEventListener('click', calScore)
+    </script>
+</body>
+</html>
